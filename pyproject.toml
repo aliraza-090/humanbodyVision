@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "humanbodyvision"
+version = "1.0.0"
+description = "Offline AI-powered human body tracking, activity recognition and exercise monitoring"
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+license = { text = "MIT" }
+authors = [{ name = "Ali Raza Chakrani" }]
+keywords = ["pose", "mediapipe", "opencv", "webcam", "fitness", "offline"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Win32 (MS Windows)",
+  "Intended Audience :: End Users/Desktop",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Multimedia :: Video :: Capture",
+]
+dependencies = [
+  "customtkinter==6.0.0",
+  "mediapipe==1.2.0",
+  "numpy==2.5.4",
+  "opencv-python==5.0.0.93",
+  "pillow==13.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0", "pyinstaller==6.22.3"]
+
+[project.scripts]
+humanbodyvision = "humanbodyvision.app:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+humanbodyvision = ["resources/**/*"]
+
+[tool.setuptools.exclude-package-data]
+humanbodyvision = ["**/__pycache__/*", "**/*.pyc"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
+addopts = "-ra"
+filterwarnings = [
+  "ignore::DeprecationWarning:mediapipe.*",
+  "ignore::DeprecationWarning:google.*",
+]

@@ -1,0 +1,41 @@
+# Operating system / editor noise
+Thumbs.db
+Desktop.ini
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Local environment and secrets
+.env
+.env.local
+
+# Logs, recordings and exports (the app writes user data to %APPDATA%)
+*.log
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.png
+*.jpg
+*.jpeg
+!src/humanbodyvision/resources/**/*.png
+!docs/**/*.png
+
+# Installer output
+dist/installer/
+Output/
